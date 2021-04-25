@@ -7,7 +7,7 @@ app.get('/'/* path or url '/' represrnts route of the website*/, /* callback fun
 });
 // to get all courses
 app.get('/api/courses', (req, res) => {
-    res.send(courses);
+    res.send("kkk");
 });
 // Environment variable
 const port = process.env.port || 3000
