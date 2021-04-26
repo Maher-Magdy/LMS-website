@@ -7,11 +7,34 @@ app.get('/'/* path or url '/' represrnts route of the website*/, /* callback fun
     res.send('welcome to LMS , you can use CRUD operations using api in the website URL. ex:/api/courses/create');
 });
 
+class student{
+    constructor(name , code,id){
+    this.name=name;
+    this.code=code;
+    this.id=id;
+    }
+    
+    
+    }
+    
+    
+
+    class course{
+        constructor(name,code,id,description){
+            this.name=name;
+            this.code=code;
+            this.id=id;
+            this.description=description;
+
+        }
+    }
 
 
+
+    let a= new student("","","");
 // to get all courses
 app.get('/api/courses', (req, res) => {
-    res.send("");
+    res.send(a);
 });
 
 
