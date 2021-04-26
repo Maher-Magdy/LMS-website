@@ -38,7 +38,7 @@ app.get('/api/courses', (req, res) => {
 
 // to create
 app.get('/api/courses/create', (req, res) => {
-    res.send("");
+    res.send("why");
 
     
     
