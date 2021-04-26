@@ -18,7 +18,7 @@ app.get('/'/* path or url '/' represrnts route of the website*/, /* callback fun
 
 //listener
 // Environment variable
-const port = process.env.PORT || 3000;
+const port = process.env.port || 3000
 
 app.listen(port /*PortNumber*/, () => console.log(`Listeneing on port ${port}......`) /* optionally a function that called when the app starts listening to the given port */);
 
