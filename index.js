@@ -6,21 +6,35 @@ app.get('/'/* path or url '/' represrnts route of the website*/, /* callback fun
     // This req object has a bunch of useful propereties u can refrence documentation for more info
     res.send('welcome to LMS , you can use CRUD operations using api in the website URL. ex:/api/courses/create');
 });
-
+//classes
+/*
 class student{
     constructor(name , code,id){
     this.name=name;
     this.code=code;
     this.id=id;
     }
-    
-    
+    static update(name,code,id){
+    this.name=name;
+    this.code=code;
+    this.id=id;
+
+
     }
     
-    
+    }
+       
 
     class course{
         constructor(name,code,id,description){
+            this.name=name;
+            this.code=code;
+            this.id=id;
+            this.description=description;
+
+
+        }
+        update(name,code,id,description){
             this.name=name;
             this.code=code;
             this.id=id;
@@ -30,11 +44,26 @@ class student{
     }
 
 
+*/
+//arrays
 
-    let a= new student("","","");
+let Cname=[];
+let Ccode=[];
+let Cid=[];
+let Sname=[];
+let Scode=[];
+let Sid=[];
+let Sdes=[];
+
+
+
+
+
+
+
 // to get all courses
 app.get('/api/courses', (req, res) => {
-    res.send(a);
+    res.send('');
 });
 
 
