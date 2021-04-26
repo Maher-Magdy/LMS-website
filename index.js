@@ -128,7 +128,7 @@ app.post('/api/students',(req,res)=>{
     //validation
     const schema ={
         name:Joi.string().required(),
-        code:Joi.length(7)
+        code:Joi.string().length(7)
     };
 
     const result=Joi.valid(req.body,schema);
