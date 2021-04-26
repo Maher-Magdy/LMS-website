@@ -1,10 +1,24 @@
+
 const express = require('express');     // return a function
 const app = express();                  // return an object
+
+//html
+const fs = require('fs');
+
+
 //main website
 // To respond to http get request
 app.get('/'/* path or url '/' represrnts route of the website*/, /* callback function */(req, res) => {
     // This req object has a bunch of useful propereties u can refrence documentation for more info
     res.send('welcome to LMS , you can use CRUD operations using api in the website URL. ex:/api/courses/create');
+    
+    res.writeHead(200,{"Content-Type":"text/html"});
+    fs.readFile("./index.html",null,function(data){
+    res.write(data);
+
+
+    });
+    
 });
 //classes
 /*
