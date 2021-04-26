@@ -3,28 +3,14 @@ const app = express();                  // return an object
 const bodyParser =require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({extended:false});
 const fs = require('fs');
+const Joi =require("joi");
+const { POINT_CONVERSION_UNCOMPRESSED } = require('constants');
 app.use(express.json());
 app.use(express.static('public'));
-/*
-app.post('/api/courses/create',urlencodedParser,function(req,res){
 
-    res.writeHead(200,{"Content-Type":"text/html"});
-    fs.readFile("./course_create.html",null,function(error,data){
-    res.write(data);
-    });
-    // Prepare output in JSON format
-    response ={
-    first_name:req.body.first_name,
-    last_name:req.body.last_name
-    };
-    //console.log(response);
-    res.end(JSON.stringify(response));
-    })
-    var server =app.listen(8081,function(){
-    
-    
-    })
-    */
+
+
+
 //main website
 // To respond to http get request
 app.get('/'/* path or url '/' represrnts route of the website*/, /* callback function */(req, res) => {
@@ -35,6 +21,20 @@ app.get('/'/* path or url '/' represrnts route of the website*/, /* callback fun
 });
 
 //arrays
+const courses=
+[
+
+
+
+];
+
+const students=
+[
+    
+
+
+];
+
 
 let Cname=[];
 let Ccode=[];
@@ -48,7 +48,7 @@ let Sdes=[];
 
 
 
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // to get all courses
 app.get('/api/courses', (req, res) => {
@@ -82,6 +82,8 @@ app.get('/api/courses/delete', (req, res) => {
 app.get('/api/courses/update', (req, res) => {
     res.send("");
 });
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 // to get all students
@@ -118,10 +120,50 @@ app.get('/api/students/update', (req, res) => {
 
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// post request for create
 
+//create student
+app.post("api/students/create",(req,res)=>{
+    //validation
+    const schema ={
+        name:Joi.string().min(1).required()
+    };
 
+    Joi.validate
+    if(req.query.name.find(!""))
+    {        
+      res.status(400).send("");  
+        return;
+    }
+    if(req.query.code.length!=7)
+    {        
+      res.status(400).send("code must be 7 characters");  
+        return;
+    }
 
+    const course ={
+        id: courses.length,
+        name: req.query.name,
+        code:req.query.code
+    };
+    courses.push(course);
+    res.send(courrse);
+});
 
+//craete course
+app.post("api/courses/create",(req,res)=>{
+    //validation
+
+    const student ={
+        id: courses.length,
+        name: req.query.name,
+        code:req.query.code,
+        description:req.query.description
+    };
+    students.push(course);
+    res.send(student);
+});
 
 
 
@@ -147,6 +189,26 @@ app.listen(port /*PortNumber*/, () => console.log(`Listeneing on port ${port}...
 
 
 
+/*
+app.post('/api/courses/create',urlencodedParser,function(req,res){
+
+    res.writeHead(200,{"Content-Type":"text/html"});
+    fs.readFile("./course_create.html",null,function(error,data){
+    res.write(data);
+    });
+    // Prepare output in JSON format
+    response ={
+    first_name:req.body.first_name,
+    last_name:req.body.last_name
+    };
+    //console.log(response);
+    res.end(JSON.stringify(response));
+    })
+    var server =app.listen(8081,function(){
+    
+    
+    })
+    */
 
 //classes
 /*
