@@ -10,6 +10,7 @@ const fs = require('fs');
 app.get('/'/* path or url '/' represrnts route of the website*/, /* callback function */(req, res) => {
     // This req object has a bunch of useful propereties u can refrence documentation for more info
     res.send('welcome to LMS , you can use CRUD operations using api in the website URL. ex:/api/courses/create');
+<<<<<<< HEAD
     
   
 });
@@ -29,10 +30,38 @@ let Sdes=[];
 
 
 
+=======
+});
 
+class student{
+    constructor(name , code,id){
+    this.name=name;
+    this.code=code;
+    this.id=id;
+    }
+    
+    
+    }
+    
+    
+
+    class course{
+        constructor(name,code,id,description){
+            this.name=name;
+            this.code=code;
+            this.id=id;
+            this.description=description;
+
+        }
+    }
+
+
+>>>>>>> parent of 618f3a1 (Update index.js)
+
+    let a= new student("","","");
 // to get all courses
 app.get('/api/courses', (req, res) => {
-    res.send('');
+    res.send(a);
 });
 
 
