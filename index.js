@@ -10,7 +10,97 @@ const fs = require('fs');
 app.get('/'/* path or url '/' represrnts route of the website*/, /* callback function */(req, res) => {
     // This req object has a bunch of useful propereties u can refrence documentation for more info
     res.send('welcome to LMS , you can use CRUD operations using api in the website URL. ex:/api/courses/create');
+    
+  
 });
+
+//arrays
+
+let Cname=[];
+let Ccode=[];
+let Cid=[];
+let Sname=[];
+let Scode=[];
+let Sid=[];
+let Sdes=[];
+
+
+
+
+
+
+
+// to get all courses
+app.get('/api/courses', (req, res) => {
+    res.send('');
+});
+
+
+// to create
+app.get('/api/courses/create', (req, res) => {
+    res.send("");
+
+    /*
+    
+    res.writeHead(200,{"Content-Type":"text/html"});
+    fs.readFile("./index.html",null,function(data){
+    res.write(data);
+
+
+    });
+    
+    */
+});
+
+
+// to delete
+app.get('/api/courses/delete', (req, res) => {
+    res.send("");
+});
+
+
+
+// to update
+app.get('/api/courses/update', (req, res) => {
+    res.send("");
+});
+
+
+// to get all students
+app.get('/api/students', (req, res) => {
+    res.send("");
+});
+
+// to create
+app.get('/api/students/create', (req, res) => {
+    res.send("");
+});
+
+
+
+// to delete
+app.get('/api/students/delete', (req, res) => {
+    res.send("");
+});
+
+
+
+// to update
+app.get('/api/students/update', (req, res) => {
+    res.send("");
+});
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -18,7 +108,7 @@ app.get('/'/* path or url '/' represrnts route of the website*/, /* callback fun
 
 //listener
 // Environment variable
-const port = process.env.port || 3000
+const port = process.env.PORT || 3000;
 
 app.listen(port /*PortNumber*/, () => console.log(`Listeneing on port ${port}......`) /* optionally a function that called when the app starts listening to the given port */);
 
