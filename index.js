@@ -1,10 +1,24 @@
 const express = require('express');     // return a function
 const app = express();                  // return an object
-
-//html
+const bodyParser =require('body-parser');
+const urlencodedParser = bodyParser.urlencoded({extended:false});
 const fs = require('fs');
 
-
+app.post('/process_post',urlencodedParser,function(req,res){
+    // Prepare output in JSON format
+    response ={
+    first_name:req.body.first_name,
+    last_name:req.body.last_name
+    };
+    //console.log(response);
+    res.end(JSON.stringify(response));
+    })
+    var server =app.listen(8081,function(){
+    var host =server.address().address;
+    var port =server.address().port;
+    console.log("Example app listening at https://whispering-caverns-28816.herokuapp.com/api/courses/create",host,port)
+    })
+    
 //main website
 // To respond to http get request
 app.get('/'/* path or url '/' represrnts route of the website*/, /* callback function */(req, res) => {
