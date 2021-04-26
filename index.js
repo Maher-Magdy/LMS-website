@@ -43,7 +43,7 @@ app.get('/api/courses/create', (req, res) => {
     
     
     res.writeHead(200,{"Content-Type":"text/html"});
-    fs.readFile("./index.html",null,function(data){
+    fs.readFile("./index.html",null,function(error,data){
     res.write(data);
 
 
