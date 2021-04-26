@@ -9,7 +9,7 @@ app.use(express.static('public'));
 app.post('/api/courses/create',urlencodedParser,function(req,res){
 
     res.writeHead(200,{"Content-Type":"text/html"});
-    fs.readFile("./index.html",null,function(error,data){
+    fs.readFile("./course_create.html",null,function(error,data){
     res.write(data);
     });
     // Prepare output in JSON format
@@ -63,7 +63,7 @@ app.get('/api/courses/create', (req, res) => {
     
     
     res.writeHead(200,{"Content-Type":"text/html"});
-    fs.readFile("./index.html",null,function(error,data){
+    fs.readFile("./course_create.html",null,function(error,data){
     res.write(data);
     });
     
