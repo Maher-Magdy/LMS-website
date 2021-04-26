@@ -127,15 +127,16 @@ app.get('/api/students/update', (req, res) => {
 app.post("api/students/create",(req,res)=>{
     //validation
     const schema ={
-        name:Joi.string().min(1).required()
+        name:Joi.string().required()
     };
 
-    Joi.validate
-    if(req.query.name.find(!""))
-    {        
-      res.status(400).send("");  
+    const result=Joi.valid(req.query,schema);
+    if(result.error)
+    {
+        res.status(400).send("name can only have letters , apostrophe and dashes ");  
         return;
     }
+   
     if(req.query.code.length!=7)
     {        
       res.status(400).send("code must be 7 characters");  
