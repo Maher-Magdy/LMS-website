@@ -134,7 +134,7 @@ app.post('/api/students',(req,res)=>{
     const result=Joi.valid(req.body,schema);
     if(result.error)
     {
-        res.status(400).send(req.body);  
+        res.status(400).send(req.query);  
         return;
     }
    
