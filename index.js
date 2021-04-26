@@ -3,8 +3,8 @@ const app = express();                  // return an object
 const bodyParser =require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({extended:false});
 const fs = require('fs');
-
-app.post('/process_post',urlencodedParser,function(req,res){
+app.use(express.json());
+app.post('/api/courses',urlencodedParser,function(req,res){
     // Prepare output in JSON format
     response ={
     first_name:req.body.first_name,
