@@ -155,9 +155,9 @@ app.post('/api/courses',(req,res)=>{
 
     const student ={
         id: courses.length+1,
-        name: req.query.name,
-        code:req.query.code,
-        description:req.query.description
+        name: req.body.name,
+        code:req.body.code,
+        description:req.body.description
     };
     students.push(course);
     res.send(student);
