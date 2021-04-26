@@ -137,7 +137,7 @@ app.post('/api/students',(req,res)=>{
         return;
     }
    
-    if(req.body.code.length!=7)
+    else if(req.body.code.length<7)
     {        
       res.status(400).send("code must be 7 characters");  
         return;
