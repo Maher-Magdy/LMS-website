@@ -153,7 +153,7 @@ app.post('/api/students',(req,res)=>{
 app.post('/api/courses',(req,res)=>{
     //validation
 
-    const student ={
+    const course ={
         id: courses.length+1,
         name: req.body.name,
         code:req.body.code,
