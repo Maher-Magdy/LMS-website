@@ -58,7 +58,7 @@ app.get('/api/courses', (req, res) => {
 
 // to create
 app.get('/api/courses/create', (req, res) => {
-    //res.send("why");
+    //res.send("");
 
     
     
@@ -91,7 +91,14 @@ app.get('/api/students', (req, res) => {
 
 // to create
 app.get('/api/students/create', (req, res) => {
-    res.send("");
+    //res.send("");
+
+
+    res.writeHead(200,{"Content-Type":"text/html"});
+    fs.readFile("./student_create.html",null,function(error,data){
+    res.write(data);
+    });
+    
 });
 
 
