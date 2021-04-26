@@ -124,40 +124,40 @@ app.get('/api/students/update', (req, res) => {
 // post request for create
 
 //create student
-app.post("/api/students",(req,res)=>{
+app.post('/api/students',(req,res)=>{
     //validation
     const schema ={
         name:Joi.string().required()
     };
 
-    const result=Joi.valid(req.query,schema);
+    const result=Joi.valid(req.body,schema);
     if(result.error)
     {
         res.status(400).send("name can only have letters , apostrophe and dashes ");  
         return;
     }
    
-    if(req.query.code.length!=7)
+    if(req.body.code.length!=7)
     {        
       res.status(400).send("code must be 7 characters");  
         return;
     }
 
     const course ={
-        id: courses.length,
-        name: req.query.name,
-        code:req.query.code
+        id: courses.length+1,
+        name: req.body.name,
+        code:req.body.code
     };
     courses.push(course);
     res.send(courses);
 });
 
 //craete course
-app.post("/api/courses",(req,res)=>{
+app.post('/api/courses',(req,res)=>{
     //validation
 
     const student ={
-        id: courses.length,
+        id: courses.length+1,
         name: req.query.name,
         code:req.query.code,
         description:req.query.description
