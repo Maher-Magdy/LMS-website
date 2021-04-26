@@ -124,7 +124,7 @@ app.get('/api/students/update', (req, res) => {
 // post request for create
 
 //create student
-app.post("api/students/create",(req,res)=>{
+app.post("api/students",(req,res)=>{
     //validation
     const schema ={
         name:Joi.string().required()
@@ -153,7 +153,7 @@ app.post("api/students/create",(req,res)=>{
 });
 
 //craete course
-app.post("api/courses/create",(req,res)=>{
+app.post("api/courses",(req,res)=>{
     //validation
 
     const student ={
