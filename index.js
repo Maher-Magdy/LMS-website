@@ -4,7 +4,14 @@ const bodyParser =require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({extended:false});
 const fs = require('fs');
 app.use(express.json());
-app.post('/api/courses',urlencodedParser,function(req,res){
+app.use(express.static('public'));
+
+app.post('/api/courses/create',urlencodedParser,function(req,res){
+
+    res.writeHead(200,{"Content-Type":"text/html"});
+    fs.readFile("./index.html",null,function(error,data){
+    res.write(data);
+    });
     // Prepare output in JSON format
     response ={
     first_name:req.body.first_name,
@@ -14,9 +21,8 @@ app.post('/api/courses',urlencodedParser,function(req,res){
     res.end(JSON.stringify(response));
     })
     var server =app.listen(8081,function(){
-    var host =server.address().address;
-    var port =server.address().port;
-    console.log("Example app listening at https://whispering-caverns-28816.herokuapp.com/api/courses/create",host,port)
+    
+    
     })
     
 //main website
@@ -59,8 +65,6 @@ app.get('/api/courses/create', (req, res) => {
     res.writeHead(200,{"Content-Type":"text/html"});
     fs.readFile("./index.html",null,function(error,data){
     res.write(data);
-
-
     });
     
     
