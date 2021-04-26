@@ -139,7 +139,6 @@ app.post('/api/students',(req,res)=>{
     }
    
     
-
     const course ={
         id: courses.length+1,
         name: req.body.name,
