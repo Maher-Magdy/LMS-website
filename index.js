@@ -160,7 +160,7 @@ app.post('/api/courses',(req,res)=>{
         description:req.body.description
     };
     students.push(course);
-    res.send(student);
+    res.send(course);
 });
 
 
