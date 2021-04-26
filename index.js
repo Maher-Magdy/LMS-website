@@ -40,6 +40,8 @@ app.get('/api/courses', (req, res) => {
 app.get('/api/courses/create', (req, res) => {
     res.send("");
 
+    /*
+    
     res.writeHead(200,{"Content-Type":"text/html"});
     fs.readFile("./index.html",null,function(data){
     res.write(data);
@@ -47,6 +49,7 @@ app.get('/api/courses/create', (req, res) => {
 
     });
     
+    */
 });
 
 
