@@ -5,7 +5,7 @@ const urlencodedParser = bodyParser.urlencoded({extended:false});
 const fs = require('fs');
 app.use(express.json());
 app.use(express.static('public'));
-
+/*
 app.post('/api/courses/create',urlencodedParser,function(req,res){
 
     res.writeHead(200,{"Content-Type":"text/html"});
@@ -24,7 +24,7 @@ app.post('/api/courses/create',urlencodedParser,function(req,res){
     
     
     })
-    
+    */
 //main website
 // To respond to http get request
 app.get('/'/* path or url '/' represrnts route of the website*/, /* callback function */(req, res) => {
