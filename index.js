@@ -81,7 +81,7 @@ app.get('/api/courses/:id', (req, res) => {
 // to update
 app.put('/api/courses/:id', (req, res) => {
     const course =courses.find(c=>c.id===parseInt(req.params.id));
-    if(!course)res.status(404).send("no course found with the given id !");
+    if(!course)res.status(404).send("no course was found with the given id !");
     //validation
     reexp=new RegExp("^[a-zA-Z-']{3}[0-9]{3}");
     
@@ -150,7 +150,34 @@ app.get('/api/students/:id', (req, res) => {
 
 // to update
 app.get('/api/students/:id', (req, res) => {
-    res.send("");
+    const student =students.find(c=>c.id===parseInt(req.params.id));
+    if(!student)res.status(404).send("no student was found with the given id !");
+    //validation
+    reexp=new RegExp("[^a-zA-Z-']");
+    reexp2=new RegExp("[^']");
+    var regex = /^[a-zA-Z-]+$/g;
+    re = new RegExp("1|2|3|4|5|6|7|8|9|0");
+    let sname=JSON.stringify(req.body.name);
+
+    if(req.body.name.length<1||reexp.test(req.body.name))
+    {
+        res.status(400).send("name is required and can only have letters , apostrophe and dashes.  ");  
+        return;
+    }
+    
+    
+    else if(req.body.code.length!=7)
+    {
+        res.status(400).send(" code is required and must be exactly 7 characters ");  
+        return;
+
+    }
+    
+    student.name= req.body.name;
+    student.code=req.body.code;    
+    res.send(students);
+
+
 });
 
 
