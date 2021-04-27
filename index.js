@@ -126,19 +126,26 @@ app.get('/api/students/update', (req, res) => {
 //create student
 app.post('/api/students',urlencodedParser,(req,res)=>{
     //validation
+    /*
     const schema ={
         name:Joi.string().min(1).required(),
-        //code:Joi.string().length(7)
+        code:Joi.string().length(7)
     };
 
     const result=Joi.validate(req.body,schema);
-    if(result.error)
+    if(result)
     {
         
         res.status(400).send("name can only have letters , apostrophe and dashes. \n code must be exactly 7 characters ");  
         return;
     }
-   
+   */
+    re =RegExp([a-zA-Z]);
+    if(req.body.name.length<0||re.test(req.body.name))
+    {
+
+
+    }
     
     const student ={
         id: students.length+1,
