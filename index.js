@@ -144,7 +144,7 @@ app.post('/api/students',urlencodedParser,(req,res)=>{
     reexp2=new RegExp("[^']");
     re = new RegExp("1|2|3|4|5|6|7|8|9|0");
     let sname=JSON.stringify(req.body.name);
-    if(req.body.name.length<1||reexp.test(req.body.name||reexp2.test(req.body.name))
+    if(req.body.name.length<1||reexp.test(req.body.name)||reexp2.test(req.body.name))
     {
         res.status(400).send("name can only have letters , apostrophe and dashes.  ");  
         return;
