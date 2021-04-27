@@ -131,11 +131,11 @@ app.post('/api/students',urlencodedParser,(req,res)=>{
         //code:Joi.string().length(7)
     };
 
-    const result=Joi.valid(req.body,schema);
+    const result=Joi.validate(req.body,schema);
     if(result.error)
     {
-      
-        res.status(400).send("name can only have letters , apostrophe and dashes. \n code must be exactly 7 characters ");  
+        res.send(result.error);
+        //res.status(400).send("name can only have letters , apostrophe and dashes. \n code must be exactly 7 characters ");  
         return;
     }
    
