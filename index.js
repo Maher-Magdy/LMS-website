@@ -171,7 +171,7 @@ app.post('/api/students',urlencodedParser,(req,res)=>{
 //craete course
 app.post('/api/courses',urlencodedParser,(req,res)=>{
     //validation
-    reexp=new RegExp("[^a-zA-Z-']");
+    reexp=new RegExp("^[a-zA-Z-']{3}[0-9]{3}");
     
     let sname=JSON.stringify(req.body.code);
 
@@ -183,9 +183,9 @@ app.post('/api/courses',urlencodedParser,(req,res)=>{
 
     }
 
-    else if(req.body.code.length<1||reexp.test(req.body.code))
+    else if(req.body.code.length!=6||reexp.test(req.body.code))
     {
-        res.status(400).send("code is required and can only have letters , apostrophe and dashes.  ");  
+        res.status(400).send("code is required and must match 3 letters followed by 3 numbers.  ");  
         return;
     }
     
