@@ -148,7 +148,7 @@ app.post('/api/students',urlencodedParser,(req,res)=>{
         return;
     }
     
-    else if(sname.search(".")!=-1)
+    else if(sname.search("-")!=-1)
     {
         res.status(400).send("name can only have letters , apostrophe and dashes.  ");  
         return;
