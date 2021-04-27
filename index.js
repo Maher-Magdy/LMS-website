@@ -150,16 +150,16 @@ app.post('/api/students',(req,res)=>{
 });
 
 //craete course
-app.post('/api/courses',(req,res)=>{
+app.post('/api/courses',urlencodedParser,(req,res)=>{
     //validation
 
     const course ={
         id: courses.length+1,
-        name: req.params.name,
+        name: req.body.name,
         code:req.body.code,
         description:req.body.description
     };
-    courses.push(req.params);
+    courses.push(req);
     res.send(courses);
 });
 
