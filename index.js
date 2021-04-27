@@ -140,13 +140,13 @@ app.post('/api/students',(req,res)=>{
     }
    
     
-    const course ={
-        id: courses.length+1,
+    const student ={
+        id: students.length+1,
         name: req.body.name,
         code:req.body.code
     };
-    courses.push(course);
-    res.send(courses);
+    students.push(student);
+    res.send(students);
 });
 
 //craete course
@@ -159,8 +159,8 @@ app.post('/api/courses',(req,res)=>{
         code:req.body.code,
         description:req.body.description
     };
-    students.push(course);
-    res.send(course);
+    courses.push(course);
+    res.send(courses);
 });
 
 
