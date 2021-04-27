@@ -135,17 +135,19 @@ app.get('/api/students', (req, res) => {
 //read
 app.get('/api/students/:id', (req, res) => {
 
-    if(req.params.id=="create")
+  
+    const student =students.find(c=>c.id===parseInt(req.params.id));
+    if(!student)res.status(404).send("no student was found with the given id !");
+    else if(student) res.send(student);
+    else if(req.params.id==="create")
     {
         res.writeHead(200,{"Content-Type":"text/html"});
         fs.readFile("./student_create.html",null,function(error,data){
         res.write(data);
-        });
-    
+        });  
+
+
     }
-    const student =students.find(c=>c.id===parseInt(req.params.id));
-    if(!student)res.status(404).send("no student was found with the given id !");
-    else res.send(student);
 });
 
 // to create
