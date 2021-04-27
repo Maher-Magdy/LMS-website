@@ -52,7 +52,7 @@ let Sdes=[];
 
 // to get all courses
 app.get('/api/courses', (req, res) => {
-    res.send('');
+    res.send(courses);
 });
 
 
@@ -88,7 +88,7 @@ app.get('/api/courses/update', (req, res) => {
 
 // to get all students
 app.get('/api/students', (req, res) => {
-    res.send("");
+    res.send(students);
 });
 
 // to create
@@ -140,7 +140,7 @@ app.post('/api/students',urlencodedParser,(req,res)=>{
         return;
     }
    *///1|2|3|4|5|6|7|8|9|0|!|@|#|%|^|&|*|(|)|_|+|=|.|<|>|,|      "/[a-zA-Z]+"-"*'''[a-zA-Z]*$"
-    reexp=new RegExp("[^a-zA-Z]")
+    reexp=new RegExp("[^a-zA-Z]|[^']|[^-]")
     re = new RegExp("1|2|3|4|5|6|7|8|9|0");
     let sname=JSON.stringify(req.body.name);
     if(req.body.name.length<1||reexp.test(req.body.name))
