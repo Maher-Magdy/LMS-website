@@ -84,7 +84,7 @@ app.delete('/api/courses/:id', (req, res) => {
     const index =courses.indexOf(course);
     courses.splice(index,1);
 
-    res.send(course);
+    res.send(courses);
     
 });
 
@@ -171,7 +171,7 @@ app.delete('/api/students/:id', (req, res) => {
     const index =students.indexOf(student);
     students.splice(index,1);
 
-    res.send(student);
+    res.send(students);
 });
 
 
