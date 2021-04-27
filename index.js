@@ -72,15 +72,51 @@ app.get('/api/courses/create', (req, res) => {
 
 
 // to delete
-app.get('/api/courses/delete', (req, res) => {
+app.get('/api/courses/:id', (req, res) => {
     res.send("");
 });
 
 
 
 // to update
-app.get('/api/courses/update', (req, res) => {
-    res.send("");
+app.put('/api/courses/:id', (req, res) => {
+    const course =courses.find(c=>c.id===parseInt(req.params.id));
+    if(!course)res.status(404).send("no course found with the given id !");
+    //validation
+    reexp=new RegExp("^[a-zA-Z-']{3}[0-9]{3}");
+    
+    let sname=JSON.stringify(req.body.code);
+
+    
+    if(req.body.name.length<5)
+    {
+        res.status(400).send(" name is required and must be at least 5 characters ");  
+        return;
+
+    }
+
+    else if(req.body.code.length!=6||!reexp.test(req.body.code))
+    {
+        res.status(400).send("code is required and must match 3 letters followed by 3 numbers.  ");  
+        return;
+    }
+    
+    
+    else if(req.body.description.length>200)
+    {
+        res.status(400).send(" description max length is 200 characters ");  
+        return;
+
+    }
+    
+    course.name= req.body.name;
+    course.code=req.body.code;
+    course.description=req.body.description;
+    res.send(courses);
+
+
+   
+   
 });
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -106,14 +142,14 @@ app.get('/api/students/create', (req, res) => {
 
 
 // to delete
-app.get('/api/students/delete', (req, res) => {
+app.get('/api/students/:id', (req, res) => {
     res.send("");
 });
 
 
 
 // to update
-app.get('/api/students/update', (req, res) => {
+app.get('/api/students/:id', (req, res) => {
     res.send("");
 });
 
