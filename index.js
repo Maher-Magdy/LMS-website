@@ -168,7 +168,7 @@ app.delete('/api/students/:id', (req, res) => {
     const student =students.find(c=>c.id===parseInt(req.params.id));
     if(!student)res.status(404).send("no student was found with the given id !");
     
-    const index =students.indexOf(course);
+    const index =students.indexOf(student);
     students.splice(index,1);
 
     res.send(student);
