@@ -140,19 +140,16 @@ app.post('/api/students',urlencodedParser,(req,res)=>{
         return;
     }
    *///1|2|3|4|5|6|7|8|9|0|!|@|#|%|^|&|*|(|)|_|+|=|.|<|>|,|      "/[a-zA-Z]+"-"*'''[a-zA-Z]*$"
+    reexp=new RegExp("^[a-zA-Z]")
     re = new RegExp("1|2|3|4|5|6|7|8|9|0");
     let sname=JSON.stringify(req.body.name);
-    if(req.body.name.length<1||re.test(req.body.name))
+    if(req.body.name.length<1||reexp.test(req.body.name))
     {
         res.status(400).send("name can only have letters , apostrophe and dashes.  ");  
         return;
     }
     
-    else if(sname.search("-")!=-1)
-    {
-        res.status(400).send("name can only have letters , apostrophe and dashes.  ");  
-        return;
-    }
+    
     else if(req.body.code.length!=7)
     {
         res.status(400).send(" code must be exactly 7 characters ");  
