@@ -127,7 +127,7 @@ app.get('/api/students/update', (req, res) => {
 app.post('/api/students',urlencodedParser,(req,res)=>{
     //validation
     const schema ={
-        name:Joi.string().required(),
+        name:Joi.string().min(1).required(),
         //code:Joi.string().length(7)
     };
 
