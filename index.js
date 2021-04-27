@@ -172,24 +172,24 @@ app.post('/api/students',urlencodedParser,(req,res)=>{
 app.post('/api/courses',urlencodedParser,(req,res)=>{
     //validation
     reexp=new RegExp("[^a-zA-Z-']");
-    reexp2=new RegExp("[^']");
-    var regex = /^[a-zA-Z-]+$/g;
-    re = new RegExp("1|2|3|4|5|6|7|8|9|0");
+    
     let sname=JSON.stringify(req.body.code);
 
-    if(req.body.name.length<1||reexp.test(req.body.code))
+    
+    if(req.body.name.length<5)
+    {
+        res.status(400).send(" name is required and must be at least 5 characters ");  
+        return;
+
+    }
+
+    else if(req.body.code.length<1||reexp.test(req.body.code))
     {
         res.status(400).send("code is required and can only have letters , apostrophe and dashes.  ");  
         return;
     }
     
     
-    else if(req.body.name.length<5)
-    {
-        res.status(400).send(" name is required and must be at least 5 characters ");  
-        return;
-
-    }
     else if(req.body.description.length>200)
     {
         res.status(400).send(" description max length is 200 characters ");  
