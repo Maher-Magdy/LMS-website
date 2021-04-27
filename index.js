@@ -72,7 +72,7 @@ app.get('/api/courses/create', (req, res) => {
 
 
 // to delete
-app.get('/api/courses/:id', (req, res) => {
+app.delete('/api/courses/:id', (req, res) => {
     res.send("");
 });
 
@@ -142,14 +142,14 @@ app.get('/api/students/create', (req, res) => {
 
 
 // to delete
-app.get('/api/students/:id', (req, res) => {
+app.delete('/api/students/:id', (req, res) => {
     res.send("");
 });
 
 
 
 // to update
-app.get('/api/students/:id', (req, res) => {
+app.put('/api/students/:id', (req, res) => {
     const student =students.find(c=>c.id===parseInt(req.params.id));
     if(!student)res.status(404).send("no student was found with the given id !");
     //validation
