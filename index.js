@@ -159,7 +159,7 @@ app.post('/api/courses',(req,res)=>{
         code:req.body.code,
         description:req.body.description
     };
-    courses.push(course);
+    courses.push(req);
     res.send(courses);
 });
 
