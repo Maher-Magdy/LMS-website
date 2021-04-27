@@ -146,7 +146,7 @@ app.post('/api/students',urlencodedParser,(req,res)=>{
         res.status(400).send("name can only have letters , apostrophe and dashes.  ");  
         return;
     }
-    else if(JSON.stringify(req.body.name).search("."))
+    else if(JSON.stringify(req.body.name).search(".")!=-1)
     {
         res.status(400).send("name can only have letters , apostrophe and dashes.  ");  
         return;
