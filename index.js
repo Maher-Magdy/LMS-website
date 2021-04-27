@@ -141,7 +141,7 @@ app.post('/api/students',urlencodedParser,(req,res)=>{
     }
    */
     re = new RegExp('[a-zA-Z]');
-    if(req.body.name.length<0||re.test(req.body.name))
+    if(req.body.name.length<1||re.test(req.body.name))
     {
         res.status(400).send("name can only have letters , apostrophe and dashes. \n code must be exactly 7 characters ");  
         return;
