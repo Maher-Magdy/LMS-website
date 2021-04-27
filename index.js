@@ -134,8 +134,8 @@ app.post('/api/students',urlencodedParser,(req,res)=>{
     const result=Joi.validate(req.body,schema);
     if(result.error)
     {
-        res.send(result.error);
-        //res.status(400).send("name can only have letters , apostrophe and dashes. \n code must be exactly 7 characters ");  
+        
+        res.status(400).send("name can only have letters , apostrophe and dashes. \n code must be exactly 7 characters ");  
         return;
     }
    
