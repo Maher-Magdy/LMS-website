@@ -133,7 +133,7 @@ app.get('/api/students', (req, res) => {
 });
 
 //read
-app.get('/api/students/:id', (req, res) => {
+app.get('/api/students/read/:id', (req, res) => {
 
   
     const student =students.find(c=>c.id===parseInt(req.params.id));
