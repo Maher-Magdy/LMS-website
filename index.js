@@ -55,7 +55,7 @@ app.get('/api/courses', (req, res) => {
     res.send(courses);
 });
 //read
-app.get('/api/courses/:id', (req, res) => {
+app.get('/api/courses/read/:id', (req, res) => {
     const course =courses.find(c=>c.id===parseInt(req.params.id));
     if(!course)res.status(404).send("no course was found with the given id !");
     else res.send(course);
@@ -138,16 +138,8 @@ app.get('/api/students/read/:id', (req, res) => {
   
     const student =students.find(c=>c.id===parseInt(req.params.id));
     if(!student)res.status(404).send("no student was found with the given id !");
-    else if(student) res.send(student);
-    else if(req.params.id==="create")
-    {
-        res.writeHead(200,{"Content-Type":"text/html"});
-        fs.readFile("./student_create.html",null,function(error,data){
-        res.write(data);
-        });  
-
-
-    }
+    else res.send(student);
+   
 });
 
 // to create
