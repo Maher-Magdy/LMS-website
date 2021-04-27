@@ -159,7 +159,7 @@ app.post('/api/courses',urlencodedParser,(req,res)=>{
         code:req.body.code,
         description:req.body.description
     };
-    courses.push(req);
+    courses.push(course);
     res.send(courses);
 });
 
