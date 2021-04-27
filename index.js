@@ -140,10 +140,10 @@ app.post('/api/students',urlencodedParser,(req,res)=>{
         return;
     }
    */
-    re = new RegExp('1|2|3|4|5|6|7|8|9|0|!|@|#|$|%|^|&|*|(|)|_|+|=|.|<|>|,|');
+    re = new RegExp('1|2|3|4|5|6|7|8|9|0|!|@|#|%|^|&|*|(|)|_|+|=|.|<|>|,|');
     if(req.body.name.length<1||re.test(req.body.name))
     {
-        res.status(400).send("name can only have letters , apostrophe and dashes. \n ");  
+        res.status(400).send("name can only have letters , apostrophe and dashes.  ");  
         return;
     }
     else if(req.body.code.length!=7)
