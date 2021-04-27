@@ -54,7 +54,12 @@ let Sdes=[];
 app.get('/api/courses', (req, res) => {
     res.send(courses);
 });
-
+//read
+app.get('/api/courses/:id', (req, res) => {
+    const course =courses.find(c=>c.id===parseInt(req.params.id));
+    if(!course)res.status(404).send("no course was found with the given id !");
+    else res.send(course);
+});
 
 // to create
 app.get('/api/courses/create', (req, res) => {
@@ -125,6 +130,13 @@ app.put('/api/courses/:id', (req, res) => {
 // to get all students
 app.get('/api/students', (req, res) => {
     res.send(students);
+});
+
+//read
+app.get('/api/students/:id', (req, res) => {
+    const student =students.find(c=>c.id===parseInt(req.params.id));
+    if(!student)res.status(404).send("no student was found with the given id !");
+    else res.send(student);
 });
 
 // to create
