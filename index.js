@@ -140,7 +140,7 @@ app.post('/api/students',urlencodedParser,(req,res)=>{
         return;
     }
    *///1|2|3|4|5|6|7|8|9|0|!|@|#|%|^|&|*|(|)|_|+|=|.|<|>|,|      "/[a-zA-Z]+"-"*'''[a-zA-Z]*$"
-    reexp=new RegExp("[^a-zA-Z-'\S]");
+    reexp=new RegExp("[^a-zA-Z-'\s]");
     reexp2=new RegExp("[^']");
     var regex = /^[a-zA-Z-]+$/g;
     re = new RegExp("1|2|3|4|5|6|7|8|9|0");
