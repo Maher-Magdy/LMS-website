@@ -78,7 +78,14 @@ app.get('/api/courses/create', (req, res) => {
 
 // to delete
 app.delete('/api/courses/:id', (req, res) => {
-    res.send("");
+    const course =courses.find(c=>c.id===parseInt(req.params.id));
+    if(!course)res.status(404).send("no course was found with the given id !");
+    
+    const index =courses.indexOf(course);
+    courses.splice(index,1);
+
+    res.send(course);
+    
 });
 
 
@@ -158,7 +165,13 @@ app.get('/api/students/create', (req, res) => {
 
 // to delete
 app.delete('/api/students/:id', (req, res) => {
-    res.send("");
+    const student =students.find(c=>c.id===parseInt(req.params.id));
+    if(!student)res.status(404).send("no student was found with the given id !");
+    
+    const index =students.indexOf(course);
+    students.splice(index,1);
+
+    res.send(student);
 });
 
 
