@@ -155,11 +155,11 @@ app.post('/api/courses',(req,res)=>{
 
     const course ={
         id: courses.length+1,
-        name: req.body.name,
+        name: req.params.name,
         code:req.body.code,
         description:req.body.description
     };
-    courses.push(req);
+    courses.push(req.params);
     res.send(courses);
 });
 
