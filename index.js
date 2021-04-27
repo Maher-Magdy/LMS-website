@@ -183,7 +183,7 @@ app.post('/api/courses',urlencodedParser,(req,res)=>{
 
     }
 
-    else if(req.body.code.length!=6||reexp.test(req.body.code))
+    else if(req.body.code.length!=6||!reexp.test(req.body.code))
     {
         res.status(400).send("code is required and must match 3 letters followed by 3 numbers.  ");  
         return;
